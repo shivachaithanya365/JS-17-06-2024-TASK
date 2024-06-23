@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+</head>
+
+<body>
+    <script>
+        var cartt = JSON.parse(localStorage.getItem('cart'));
+
+        var mainDiv = document.createElement("div");
+        mainDiv.style.display = "flex";
+        mainDiv.style.flexWrap = "wrap";
+        mainDiv.style.gap = "20px";
+        mainDiv.style.justifyContent = "center"; // Center items horizontally
+
+        for (let i = 0; i < cartt.length; i++) {
+
+            var card = document.createElement("div");
+
+            card.style.width = "300px";
+            card.style.border = "1px solid black";
+            card.style.borderRadius = '10px';
+            card.style.display = "flex";
+            card.style.flexDirection = "column";
+            card.style.justifyContent = "start";
+            card.style.alignItems = "center";
+            card.style.gap = "10px";
+            card.style.padding = '20px';
+            card.style.boxShadow = "0 4px 8px 0px black";
+            card.style.display = "inline-block"
+            card.style.textAlign = "center"
+
+            var img = document.createElement("img");
+            img.setAttribute("src", cartt[i].image);
+            img.style.width = "110px";
+            img.style.height = "120px";
+            card.appendChild(img);
+
+            var title = document.createElement('h2');
+            title.innerText = cartt[i].title;
+            title.style.fontSize = '16px';
+            title.style.textAlign = 'center';
+            card.appendChild(title);
+
+            var price = document.createElement('p');
+            price.innerText = '$' + cartt[i].price;
+            price.style.fontWeight = 'bold';
+            card.appendChild(price);
+
+            mainDiv.appendChild(card);
+        };
+
+        document.body.appendChild(mainDiv);
+    </script>
+</body>
+
+</html>

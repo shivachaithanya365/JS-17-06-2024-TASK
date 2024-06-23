@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEE MORE...</title>
+</head>
+
+<body>
+    <script>
+
+        var imageUrl = localStorage.getItem("Image");
+        var Title = localStorage.getItem("title");
+        var Price = localStorage.getItem("price");
+        var Description = localStorage.getItem("description");
+
+        var h2 = document.createElement("h2");
+        h2.textContent = "Selected Product";
+        h2.style.textAlign = "center";
+
+        document.body.appendChild(h2);
+
+        var card = document.createElement("div");
+        card.style.width = "300px";
+        card.style.border = "1px solid black";
+        card.style.borderRadius = '10px';
+        card.style.display = "flex";
+        card.style.flexDirection = "column";
+        card.style.justifyContent = "start";
+        card.style.alignItems = "center";
+        card.style.gap = "10px";
+        card.style.padding = '20px';
+        card.style.boxShadow = "0 4px 8px 0px black";
+        card.style.margin = 'auto';
+        card.style.marginTop = '20px';
+
+        var img = document.createElement("img");
+        img.setAttribute("src", imageUrl);
+        img.style.width = "110px";
+        img.style.height = "auto";
+        card.appendChild(img);
+
+        var title = document.createElement('h2');
+        title.innerText = Title;
+        title.style.fontSize = '16px';
+        title.style.textAlign = 'center';
+        card.appendChild(title);
+
+        var price = document.createElement('p');
+        price.innerText = '$' + Price;
+        price.style.fontWeight = 'bold';
+        card.appendChild(price);
+
+        var description = document.createElement("p");
+        description.innerText = Description;
+        card.appendChild(description);
+
+        document.body.appendChild(card);
+    </script>
+</body>
+
+</html>
